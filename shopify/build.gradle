@@ -62,9 +62,9 @@ publishing {
     // 配置maven 仓库
     repositories {
         // 本地仓库位于USER_HOME/.m2/repository
-       // mavenLocal()
+         mavenLocal()
 //        // 其他maven仓库
-       maven { url uri('D\\:\\\\huo') }
+//       maven { url uri('D\\:\\\\huo') }
 //        // aliyun镜像仓库
 //        maven {
 //            // 凭证 访问仓库的 账号和密码
