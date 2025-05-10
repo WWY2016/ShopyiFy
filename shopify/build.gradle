@@ -48,14 +48,23 @@ dependencies {
 //    implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx' // (必选)
 }
 
+// 在maven-publish插件的基础使用中是不包含上传aar包的源码。
+// 增加上传源码的task，如：
+tasks.register("sourceJar", Jar) {
+    // 通过 android.sourceSets.main.java.srcDirs 指定的源码，只能识别到 Java 文件，而 kt 文件被忽略了，但 通过查看官方文档可以知道，from 函数是可以指定源码路径的，
+    // 所以这里直接把 from 函数的参数替换为 源码路径，如以下代码
+    from android.sourceSets.main.java.getSrcDirs() // 源码路径
+    archiveClassifier = "sources"
+}
+
 //publishing用于配置项目发布相关信息，可以配置的信息有两个：repositories 和 publications
 publishing {
     // 配置maven 仓库
     repositories {
         // 本地仓库位于USER_HOME/.m2/repository
-        mavenLocal()
+       // mavenLocal()
 //        // 其他maven仓库
-//        maven { url uri('/Users/h__d/Desktop/1') }
+       maven { url uri('D\\:\\\\huo') }
 //        // aliyun镜像仓库
 //        maven {
 //            // 凭证 访问仓库的 账号和密码
@@ -82,6 +91,7 @@ publishing {
             artifactId "shoyify"
             version VERSION_NAME
 
+            artifact sourceJar
             // 依赖传递
             // 经过基础与上传源码后，是能正常依赖与使用的，但是aar包原本依赖的一下第三方包是不会自动依赖，需要手动添加依赖。
             // 把library中的依赖信息，手动添加到 pom 文件中，就可以完成依赖传递，如下：
