@@ -85,7 +85,7 @@ publishing {
         release(MavenPublication) {
             // 上传指定aar包的方式有两种
             // 依赖 bundleReleaseAar 任务，并上传其产出的aar
-            afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) } // 方式一：生成aar包
+            afterEvaluate { artifact(tasks.getByName("publishReleasePublicationToMavenLocal")) } // 方式一：生成aar包
             // artifact "$buildDir/outputs/aar/${project.name}-release.aar" // 方式二：指定生成的aar路径
             groupId GROUP_ID
             artifactId "shoyify"
