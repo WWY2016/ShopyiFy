@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.cx.shopify'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'consumer-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def outputFileNamePrefix = "shopyify-1.0"
+
+android.libraryVariants.all { variant ->
+    variant.outputs.all {
+//        variant.getPackageLibrary().destinationDir = new File(project.rootDir.absolutePath + "/libs")
+        outputFileName = "${outputFileNamePrefix}.aar"
+        println("outputFileName is ${outputFileName}")
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx' // (必选)
+}

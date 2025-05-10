@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script>
+
+    function closePage() {
+                window.Hpage.closePage();
+    }
+
+  function toPage() {
+                window.Hpage.toPage('json');
+    }
+
+
+    </script>
+</head>
+<style>
+    body {
+        background-color: red;
+    }
+
+</style>
+<body>
+<input type="button" value="closePage" onclick="closePage()">
+<input type="button" value="toPage" onclick="toPage()">
+</body>
+
+</html>

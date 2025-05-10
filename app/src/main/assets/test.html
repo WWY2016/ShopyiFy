@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script>
+     function openPage(){
+            // 由于对象映射，所以调用test对象等于调用Android映射的对象
+           window.Hpage.openPage();
+     }
+
+    function closePage() {
+                window.Hpage.closePage();
+    }
+    function closeFloat() {
+                window.Hpage.closeFloat();
+    }
+    function toPage() {
+                window.Hpage.toPage('json');
+    }
+    function setVideolnfo() {
+        const info = {
+            mobileVideoHeight: 300,
+            mobileVideoWidth: 200,
+            pluginLocationMobile: 'left',
+            pluginLocationMobileHeight: 56,
+            pluginLocationMobileWidth: 8
+        }
+        console.log(JSON.stringify(info));
+                window.Hpage.setVideoInfo(JSON.stringify(info));
+
+    }
+    </script>
+</head>
+    <style>
+    body {
+        background-color: red;
+    }
+    </style>
+<body>
+    <button type="button" id="openPage" onclick="openPage()">openPage</button>
+    <input type="button" value="closeFloat" onclick="closeFloat()">
+    <input type="button" value="toPage" onclick="toPage()">
+    <input type="button" value="setVideolnfo" onclick="setVideolnfo()">
+</body>
+
+</html>
