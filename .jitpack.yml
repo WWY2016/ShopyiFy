@@ -1,6 +1,4 @@
 jdk:
   - openjdk17
-before_install:
-  - chmod +x gradlew  # 确保 Gradle 可执行
-script:
-  - ./gradlew :shopify:assembleRelease publishToMavenLocal
+gradle:
+  version: 8.2.1

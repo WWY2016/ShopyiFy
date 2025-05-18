@@ -58,7 +58,7 @@ afterEvaluate {
                     from releaseComponent
                     groupId = 'com.cx.shopify'
                     artifactId = 'shopify'
-                    version = '1.0.4'
+                    version = '1.0.0'
                 }
             }
         }
