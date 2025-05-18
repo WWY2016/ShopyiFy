@@ -1,4 +1,7 @@
+# jitpack.yml
 jdk:
   - openjdk17
 gradle:
   version: 8.2.1
+before_install:
+  - chmod +x gradlew
