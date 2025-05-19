@@ -55,6 +55,12 @@ dependencies {
 //    implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx' // (必选)
 }
 
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+}
+
 afterEvaluate {
 
     def releaseComponent = components.find { it.name == 'release' }
@@ -63,13 +69,10 @@ afterEvaluate {
             publications {
                 release(MavenPublication) {
                     from releaseComponent
-                    groupId = 'com.cx.shopify'
-                    artifactId = 'shopify'
-                    version = '1.0.10'
-                    // 增加上传源码的 task
-                    artifact sourceJar
-                    // 必须有这个 否则不会上传AAR包  将bundleReleaseAar任务的单个输出文件作为发布的AAR文件。这样，该AAR文件就会成为 MavenPublication 的 artifact 并进行发布
-                    afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                    groupId = 'com.github.WWY2016'
+                    artifactId = 'ShopyiFy'
+                    version = '1.0.11'
+                    artifact sourcesJar
                 }
             }
         }
