@@ -71,7 +71,7 @@ afterEvaluate {
                     from releaseComponent
                     groupId = 'com.github.WWY2016'
                     artifactId = 'ShopyiFy'
-                    version = '1.0.11'
+                    version = '1.0.12'
                     artifact sourcesJar
                 }
             }
