@@ -71,7 +71,7 @@ afterEvaluate {
                     from releaseComponent
                     groupId = 'com.github.WWY2016'
                     artifactId = 'ShopyiFy'
-                    version = '1.0.14'
+                    version = '1.0.15'
                     artifact sourcesJar
                     afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) } // 方式一：生成aar包
                 }

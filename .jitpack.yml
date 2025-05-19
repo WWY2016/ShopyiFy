@@ -7,3 +7,5 @@ gradle:
 before_install:
   - chmod +x gradlew   # 确保 gradlew 有执行权限
   - ./gradlew clean    # 预清理
+install:
+  - ./gradlew clean assembleRelease  # 根据需要调整任务名
