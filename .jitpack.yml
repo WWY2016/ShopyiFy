@@ -3,5 +3,7 @@ jdk:
   - openjdk17
 gradle:
   version: 8.2.1
+  args: --stacktrace --info
 before_install:
-  - chmod +x gradlew
+  - chmod +x gradlew   # 确保 gradlew 有执行权限
+  - ./gradlew clean    # 预清理
